@@ -1,0 +1,7 @@
+controller.sh
+*.wav
+sound.py
+getPitch.py
+test.py
+plot.py
+generate2.py
