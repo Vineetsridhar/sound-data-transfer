@@ -1,7 +1,8 @@
-controller.sh
 *.wav
-sound.py
 getPitch.py
 test.py
 plot.py
+generate.py
 generate2.py
+vals.txt
+gen.py
