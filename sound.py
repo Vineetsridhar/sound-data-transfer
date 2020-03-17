@@ -1,16 +1,19 @@
 import sys, os
-sys.stdout = open(os.devnull, 'w')
-
-
 import pyaudio
 import wave
-
+from array import array
+import time
 CHUNK = 1024
 FORMAT = pyaudio.paInt16
 CHANNELS = 1
 RATE = 44100
 RECORD_SECONDS = int(sys.argv[1])
 WAVE_OUTPUT_FILENAME = "output.wav"
+THRESHOLD = 10000
+
+def is_silence(data):
+    return max(data) < THRESHOLD
+    
 
 p = pyaudio.PyAudio()
 
@@ -20,15 +23,32 @@ stream = p.open(format=FORMAT,
                 input=True,
                 frames_per_buffer=CHUNK)
 
-print("* recording")
 
 frames = []
+data = array('h')
+data.append(0)
+while is_silence(data):
+    data_chunk = array('h', stream.read(CHUNK))
+    if sys.byteorder == 'big':
+        data_chunk.byteswap()
+    data.extend(data_chunk)
 
+
+stream.stop_stream()
+stream.close()
+print("Waiting one second")
+time.sleep(1)
+
+print("Recording")
+stream = p.open(format=FORMAT,
+                channels=CHANNELS,
+                rate=RATE,
+                input=True,
+                frames_per_buffer=CHUNK)
 for i in range(0, int(RATE / CHUNK * RECORD_SECONDS)):
     data = stream.read(CHUNK)
     frames.append(data)
 
-print("* done recording")
 
 stream.stop_stream()
 stream.close()

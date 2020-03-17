@@ -67,9 +67,11 @@ def translateData(binary):
     ret = ""
     if len(binary) % 6 != 0:
         print("Corruption occured: {}".format(len(binary) % 6 ))
-        return None
+        
     for i in range(0, len(binary), 6):
-        ret += mapping["".join(map(str, binary[i:i+6]))]
+        key = "".join(map(str, binary[i:i+6]))
+        if key in mapping:
+            ret += mapping[key]
         
     print(ret)
     
@@ -79,7 +81,7 @@ N = audio.shape[0]
 L = N / rate
 #THRESHOLD = getThreshold(audio, N, rate, 0.25)
 #THRESHOLD -= THRESHOLD / 10 * 2
-THRESHOLD = 10000
+THRESHOLD = 5000
 #print(THRESHOLD, audio)
 vals = filter(audio, THRESHOLD)
 #getStartPoint(vals, N, rate)
