@@ -15,5 +15,15 @@ class MyMapping:
             dic["{}".format(self.itoa(i, 2)).zfill(6)] = letters[i]
         return dic
 
-    def __init__(self):
-        self.mapping = self.decoder(62)
+    def encoder(self, n):
+        letters = " abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789"
+        dic = {}
+        for i in range(n + 1) :  
+            dic[letters[i]] = "{}".format(self.itoa(i, 2)).zfill(6)
+        return dic
+
+    def __init__(self, encode):
+        if encode:
+            self.mapping = self.encoder(62)
+        else:
+            self.mapping = self.decoder(62)

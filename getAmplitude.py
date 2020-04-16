@@ -62,7 +62,7 @@ def getThreshold(data, times, rate, intervalF=0.1, sampleSize=6):
     return sum(sorted(maxes)[-sampleSize:])/sampleSize
 
 def translateData(binary):
-    mapping = MyMapping()
+    mapping = MyMapping(False)
     mapping = mapping.mapping
     ret = ""
     if len(binary) % 6 != 0:
