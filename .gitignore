@@ -6,3 +6,4 @@ generate.py
 generate2.py
 vals.txt
 gen.py
+__pycache__
