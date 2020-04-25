@@ -18,3 +18,10 @@ i.e
 ```
 Will wait for starting sound and then begin recording for [duration] seconds.
 Will then call the getAmplitude fuction which parses the data, extracts the bits, and returns the value
+
+## Usage for chatroom
+```
+cd chatroomtest
+chmod 744 chatroom.sh
+./chatroom.sh
+```

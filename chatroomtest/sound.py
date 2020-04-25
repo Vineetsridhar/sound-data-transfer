@@ -1,4 +1,4 @@
-from getAmplitudeTest import *
+from getAmplitude import *
 import sys, os
 import pyaudio
 import wave
@@ -64,7 +64,7 @@ def sound():
     wf.close()
     
     getAmp()
-    #sound()
+    sound()
 
 sound()
     

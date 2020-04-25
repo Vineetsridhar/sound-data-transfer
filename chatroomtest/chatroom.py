@@ -1,5 +1,5 @@
 from tkinter import *
-from sendRecTest import *
+from sendRec import *
 
 def textchat():
     chat = open("chathistory.txt", "r")
@@ -24,7 +24,7 @@ def refresh():
     text.yview(END)
     clear('buffer.txt')
     print("Chat refreshed!")
-    root.after(REF, refresh)
+    root.after(100, refresh)
 
 def define():
     global name

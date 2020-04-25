@@ -3,9 +3,9 @@ import numpy as np
 import time
 p = pyaudio.PyAudio()
 import sys
-from mappingTest import MyMapping
+from mapping import MyMapping
 
-FREQ = 12000
+FREQ = 8000
 
 def generate_wave(f, duration, volume=0.5, fs=44100):
     samples = (np.sin(2*np.pi*np.arange(fs*duration)*f/fs)).astype(np.float32).tobytes()
@@ -49,6 +49,5 @@ def createBinary(data):
 
 def call(inp):
     data = createBinary(inp)
-    print(data)
     generate_sequence(FREQ, [int(n) for n in data])
     

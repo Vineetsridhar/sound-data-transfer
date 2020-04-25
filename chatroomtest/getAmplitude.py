@@ -2,7 +2,7 @@ from scipy.io import wavfile
 import numpy as np
 import matplotlib.pyplot as plt
 import math
-from mappingTest import MyMapping
+from mapping import MyMapping
 
 def filter(audio, threshold):
     audio = np.copy(audio)
@@ -85,7 +85,8 @@ def getAmp():
     vals = filter(audio, THRESHOLD)
     #getStartPoint(vals, N, rate)
     binary = getNumber(audio, N, rate, THRESHOLD, 0.02, 0.04)
-    [print(x, end="") for x in binary]
+    for x in binary:
+        print(x, end="")
     print()
 
     buffer = open("buffer.txt", 'a')
@@ -93,7 +94,7 @@ def getAmp():
     buffer.close()
 
     print(translateData(binary))
-    showMultiplePlots(vals, audio, N, rate)
+    #showMultiplePlots(vals, audio, N, rate)
     #showPlots(audio, N, rate)
 
     

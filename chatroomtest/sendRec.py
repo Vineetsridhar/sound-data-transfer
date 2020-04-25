@@ -1,4 +1,4 @@
-from generatorTest import *
+from generator import *
 
 def new():
     try:

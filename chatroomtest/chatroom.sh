@@ -1,4 +1,4 @@
 #!/bin/bash
 
-python chatroomTest.py &
-python soundTest.py &
+python3 chatroom.py &
+python3 sound.py &
