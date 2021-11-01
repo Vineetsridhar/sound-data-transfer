@@ -7,7 +7,7 @@ Data is almost always wirelessly transmitted through radio waves whether that be
   2. Limited to very certain characters
   3. The application is just listening for any sound rather than a specific frequency. Very easy for data to get corrupted. FFT could be a potential solution to this
   4. Sound doesn't travel very far unless you've got great speakers 
-  5. Code is kind of messy and inconsistent. I was semi-new to programming when I wrote it.
+  5. Code is kind of messy and inconsistent. I was new to programming when I wrote it.
 
 ## Potential improvements
   1. Better hardware would help a lot. My microphone could only detect certain frequencies and my speakers weren't made to turn on and off so quickly
